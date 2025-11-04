@@ -9,8 +9,7 @@ import time
 from functions import (_push_relevant_dataframe, 
                        _format_date_columns, 
                        _temporal_data_split, 
-                       _feature_label_split
-)
+                       _feature_label_split)
 
 logger = logging.getLogger(__name__)
 
