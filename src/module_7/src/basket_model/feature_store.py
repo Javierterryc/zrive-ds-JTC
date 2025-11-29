@@ -1,9 +1,12 @@
 import pandas as pd
 
-from src.basket_model.utils import features
-from src.basket_model.utils import loaders
-from src.exceptions import UserNotFoundException
+from basket_model.utils import features
+from basket_model.utils import loaders
+from basket_model.exceptions import UserNotFoundException
 
+import os
+
+# print(os.getcwd())
 
 class FeatureStore:
     def __init__(self):
@@ -26,7 +29,7 @@ class FeatureStore:
 
     def get_features(self, user_id: str) -> pd.DataFrame:
         try:
-            features = self.feature_store.loc[user_id]
+            features = self.feature_store.loc[[user_id]]
         except Exception as exception:
             raise UserNotFoundException(
                 "User not found in feature store"
